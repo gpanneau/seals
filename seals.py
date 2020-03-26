@@ -41,9 +41,9 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 	- nb_step (int) - Number of different time
 	
 	Return :
-	- dydt (list of 3 floats) - Derivate of y at t
+	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)
 	"""
-	sand=[1]
+	sand=[1.]
 	for k in range(nb_step_extraction):
 		sand.append(sand[k]+sea_sand-extraction_sand)
 	for k in range(nb_step_extraction,nb_step):
@@ -51,6 +51,18 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 	return(sand)
 
 def print_graph(t,res_extraction,res_without_extraction,sand,init):
+	"""
+	Print the results (4 graphics).
+
+	Parameters : 
+	- t : A sequence of time points for which the system has been solved.
+	- res_extraction (array of floats) : Array containing the value of y for each desired time in t, with the initial value y0 in the first row
+	- res_without_extraction (list of 3-floats-lists) : 
+	- sand (list of floats) :
+	- init (list of 4 floats) : initial numbers of seals, soles, lugworms and initial quantity of sand in the vay 
+	Return : 
+	- None
+	"""
 	sol=[[],[],[],[]]
 	for i in range(3):
 		for k in range(len(res_extraction)):
