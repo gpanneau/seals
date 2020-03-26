@@ -4,21 +4,45 @@ import sys
 import pylab as plt
 import scipy.integrate as itg
 import numpy as np
+import grenadine
 
-def ODEs_system_without_extraction(Y,t,ff,gf,fg,hg,hh,gh,sea_sand):
-	Y=[Y[0]*(ff+gf*Y[1]),
-		Y[1]*(fg*Y[0]+hg*Y[2]),
-		Y[2]*(hh+sea_sand+gh*Y[1])]
-	print(Y)
-	return(Y)
+def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
+	"""
+	Computes the derivative of y at t.
 
-def ODEs_system_extraction(Y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
-	Y=[Y[0]*(ff+gf*Y[1]),
-		Y[1]*(fg*Y[0]+hg*Y[2]),
-		Y[2]*(hh+sea_sand-extraction_sand+gh*Y[1])-extraction_sand]
-	return(Y)
+	Parameters :
+	- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay
+	- t (float) - Time parameter
+	- ff (float) - Seals death rate
+	- gf (float) - Seals growth rate because of the soles consumptuion
+	- fg (float) - Rate of soles eaten by the seals
+	- hg (float) - Soles growth rate because of the soles consumptuion
+	- hh (float) - Lugworms growth rate
+	- gh (float) - Rate of lugworms eaten by the soles
+	- sea_sand (float) - Impact of the sanding (on the lugworms)
+	- extraction_sand (float) - Impact of the sand dredging (on the lungworms)
+
+	Return :
+	- dydt (list of 3 floats) - Derivate of y at t
+	"""
+	dydt=[y[0]*(ff+gf*y[1]),
+		y[1]*(fg*y[0]+hg*y[2]),
+		y[2]*(hh+sea_sand-extraction_sand+gh*y[1])-extraction_sand]
+	return(dydt)
 
 def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
+	"""
+	Computes the quantity of sand in the bay at each time t.
+
+	Parameters :
+	- sea_sand (float) - Impact of the sanding (on the sand quantity)
+	- extraction_sand (float) - Impact of the sand dredging (on the sand quantity)
+	- nb_step_extraction (int) - Number of extraction time
+	- nb_step (int) - Number of different time
+	
+	Return :
+	- dydt (list of 3 floats) - Derivate of y at t
+	"""
 	sand=[1]
 	for k in range(nb_step_extraction):
 		sand.append(sand[k]+sea_sand-extraction_sand)
@@ -83,14 +107,13 @@ def main():
 	Nlugworms=1e9
 	init=[Nseals,Nsoles,Nlugworms,S0]
 
-	f=1
-	g=1
-	h=1
+	f=1.
+	g=1.
+	h=1.
 
 	ff=-0.2
-	fg=-0.4@@	
+	fg=-0.4
 	hh=0.2
-
 	gf=-ff
 	hg=-fg
 	gh=-hh
@@ -101,8 +124,8 @@ def main():
 	t_without_extraction=np.linspace(0, t_max-t_max_extraction, nb_step_without_extraction)
 	t = np.linspace(0, t_max, nb_step+1)
 
-	res_extraction = itg.odeint(ODEs_system_extraction,Y,t_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand))
-	res_without_extraction=itg.odeint(ODEs_system_without_extraction,res_extraction[-1],t_without_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand))
+	res_extraction = itg.odeint(ODEs_system,Y,t_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand))
+	res_without_extraction=itg.odeint(ODEs_system,res_extraction[-1],t_without_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,0.))
 
 	print_graph(t,res_extraction,res_without_extraction,sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step),init)
 	return(0)
