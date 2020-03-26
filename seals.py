@@ -114,8 +114,12 @@ def main(argv=sys.argv):
 	nb_step_without_extraction=nb_step-nb_step_extraction
 
 	sea_sand=0.0001
+	extraction_sand/=nb_step_extraction
 	sand=sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step)
 
+	if t_max_extraction>t_max:
+		print("Le temps de l'expérience t_max doit être >= au temps d'extraction t_max_extraction")
+		return(0)
 	if not(AreThereSand(sand)):
 		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
 		return(0)
