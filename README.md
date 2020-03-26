@@ -1,8 +1,6 @@
-# Seals
+# Seal food chain modelization
 
-# Project Title
-
-One Paragraph of project description goes here
+This Python 3.7 package allows the modeling the growth between 3 ocean's species in interactions : seals, soles and arénicoles in context of sand extraction. 
 
 ## Getting Started
 
@@ -10,15 +8,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-import sys
-import pylab as plt
-import scipy.integrate as itg
-import numpy as np
-import grenadine
+pip install sys
+pip install pylab
+pip install scipy.integrate
+pip install numpy
+pip install GReNaDIne
 
-```
-Give examples
-```
 
 ### Installing
 
