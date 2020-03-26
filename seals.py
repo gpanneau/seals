@@ -101,17 +101,27 @@ def print_graph(t,res_extraction,res_without_extraction,sand,init):
 
 	plt.show()
 
+def AreThereSand(sand):
+	for k in sand:
+		if k<0:
+			return(False)
+	return(True)
 
-def main():
-	t_max_extraction=25
-	t_max = 300
+def main(argv=sys.argv):
+	t_max_extraction,t_max,extraction_sand=int(argv[1]),int(argv[2]),float(argv[3])
+	#t_max_extraction,t_max,extraction_sand=int(t_max_extraction),int(t_max),float(extraction_sand)
+	#t_max_extraction=25
+	#t_max = 300
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
 	nb_step_without_extraction=nb_step-nb_step_extraction
 
 	sea_sand=0.0001
-	extraction_sand=0.001
-
+	sand=sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step)
+	#extraction_sand=0.001
+	if not(AreThereSand(sand)):
+		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
+		return(0)
 	"""données initiales"""
 	S0=70
 	Nseals=500
@@ -139,7 +149,7 @@ def main():
 	res_extraction = itg.odeint(ODEs_system,Y,t_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand))
 	res_without_extraction=itg.odeint(ODEs_system,res_extraction[-1],t_without_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,0.))
 
-	print_graph(t,res_extraction,res_without_extraction,sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step),init)
+	print_graph(t,res_extraction,res_without_extraction,sand,init)
 	return(0)
 
 if __name__ == "__main__":
