@@ -109,16 +109,13 @@ def AreThereSand(sand):
 
 def main(argv=sys.argv):
 	t_max_extraction,t_max,extraction_sand=int(argv[1]),int(argv[2]),float(argv[3])
-	#t_max_extraction,t_max,extraction_sand=int(t_max_extraction),int(t_max),float(extraction_sand)
-	#t_max_extraction=25
-	#t_max = 300
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
 	nb_step_without_extraction=nb_step-nb_step_extraction
 
 	sea_sand=0.0001
 	sand=sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step)
-	#extraction_sand=0.001
+
 	if not(AreThereSand(sand)):
 		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
 		return(0)
