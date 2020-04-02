@@ -101,12 +101,6 @@ def print_graph(t,res_extraction,res_without_extraction,sand,init):
 
 	plt.show()
 
-def AreThereSand(sand):
-	for k in sand:
-		if k<0:
-			return(False)
-	return(True)
-
 def main(argv=sys.argv):
 	t_max_extraction,t_max,extraction_sand=int(argv[1]),int(argv[2]),float(argv[3])
 	nb_step=t_max*20
@@ -120,7 +114,7 @@ def main(argv=sys.argv):
 	if t_max_extraction>t_max:
 		print("Le temps de l'expérience t_max doit être >= au temps d'extraction t_max_extraction")
 		return(0)
-	if not(AreThereSand(sand)):
+	if sand[-1]<0:
 		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
 		return(0)
 	"""données initiales"""
@@ -136,7 +130,7 @@ def main(argv=sys.argv):
 
 	ff=-0.2
 	fg=-0.4
-	hh=0.2
+	hh=0.6
 	gf=-ff
 	hg=-fg
 	gh=-hh
