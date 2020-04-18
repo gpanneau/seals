@@ -4,7 +4,8 @@ import sys
 import pylab as plt
 import scipy.integrate as itg
 import numpy as np
-import grenadine
+
+
 
 def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
 	"""
@@ -50,27 +51,20 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 		sand.append(sand[k]+sea_sand)
 	return(sand)
 
-def print_graph(t,res_extraction,res_without_extraction,sand,init):
+def print_graph(t,sol):
 	"""
 	Print the results (4 graphics).
 
 	Parameters : 
 	- t : A sequence of time points for which the system has been solved.
-	- res_extraction (array of floats) : Array containing the value of y for each desired time in t, with the initial value y0 in the first row
+	- sol : Array containing the value of y for each desired time in t, with the initial value y0 in the first row
 	- res_without_extraction (list of 3-floats-lists) : 
 	- sand (list of floats) :
 	- init (list of 4 floats) : initial numbers of seals, soles, lugworms and initial quantity of sand in the vay 
 	Return : 
 	- None
 	"""
-	sol=[[],[],[],[]]
-	for i in range(3):
-		for k in range(len(res_extraction)):
-			sol[i].append(res_extraction[k][i]*init[i])
-		for k in range(len(res_without_extraction)):
-			sol[i].append(res_without_extraction[k][i]*init[i])
-	for k in range(len(sand)):
-		sol[3].append(sand[k]*init[3])
+
 	plt.figure()
 	plt.subplot(221)
 	plt.plot(t,sol[0],label="Modèle proie prédateur")
@@ -101,7 +95,7 @@ def print_graph(t,res_extraction,res_without_extraction,sand,init):
 
 	plt.show()
 
-def main(argv=sys.argv):
+def Integrate(argv=sys.argv):
 	t_max_extraction,t_max,extraction_sand=int(argv[1]),int(argv[2]),float(argv[3])
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
@@ -143,9 +137,15 @@ def main(argv=sys.argv):
 
 	res_extraction = itg.odeint(ODEs_system,Y,t_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand))
 	res_without_extraction=itg.odeint(ODEs_system,res_extraction[-1],t_without_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,0.))
-
-	print_graph(t,res_extraction,res_without_extraction,sand,init)
-	return(0)
+	sol=[[],[],[],[]]
+	for i in range(3):
+		for k in range(len(res_extraction)):
+			sol[i].append(res_extraction[k][i]*init[i])
+		for k in range(len(res_without_extraction)):
+			sol[i].append(res_without_extraction[k][i]*init[i])
+	for k in range(len(sand)):
+		sol[3].append(sand[k]*init[3])
+	return(t,sol)
 
 if __name__ == "__main__":
-	main()
+	print_graph(Integrate())

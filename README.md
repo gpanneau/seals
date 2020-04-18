@@ -1,6 +1,6 @@
 # Seal food chain modelization
 
-This Python 3.7 package allows the modeling the growth between 3 ocean's species in interactions : seals, soles and arénicoles in context of sand extraction. 
+This Python 3.7 package allows to model the impact of the sand extraction on 3 species of the Bay of the Somme - seals, soles and lugworms.
 
 ## Getting Started
 
@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 pip install sys
 pip install pylab
-pip install scipy.integrate
+pip install scipy
 pip install numpy
 
 
@@ -78,7 +78,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the CeCILL License - see the [license.txt](license.txt) file for details
 
 ## Acknowledgments
 
