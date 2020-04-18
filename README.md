@@ -12,7 +12,6 @@ pip install sys
 pip install pylab
 pip install scipy.integrate
 pip install numpy
-pip install GReNaDIne
 
 
 ### Installing
