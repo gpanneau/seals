@@ -57,10 +57,7 @@ def print_graph(t,sol):
 
 	Parameters : 
 	- t : A sequence of time points for which the system has been solved.
-	- sol : Array containing the value of y for each desired time in t, with the initial value y0 in the first row
-	- res_without_extraction (list of 3-floats-lists) : 
-	- sand (list of floats) :
-	- init (list of 4 floats) : initial numbers of seals, soles, lugworms and initial quantity of sand in the vay 
+	- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 	Return : 
 	- None
 	"""
@@ -95,8 +92,15 @@ def print_graph(t,sol):
 
 	plt.show()
 
-def Integrate(argv=sys.argv):
-	t_max_extraction,t_max,extraction_sand=int(argv[1]),int(argv[2]),float(argv[3])
+def Integrate(param=sys.argv):
+	"""
+	Integrate the system for the given parameters.
+
+
+
+	"""
+
+	t_max_extraction,t_max,extraction_sand=int(param[1]),int(param[2]),float(param[3])
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
 	nb_step_without_extraction=nb_step-nb_step_extraction
@@ -107,10 +111,10 @@ def Integrate(argv=sys.argv):
 
 	if t_max_extraction>t_max:
 		print("Le temps de l'expérience t_max doit être >= au temps d'extraction t_max_extraction")
-		return(0)
+		return(None)
 	if sand[-1]<0:
 		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
-		return(0)
+		return(None)
 	"""données initiales"""
 	S0=70
 	Nseals=500
@@ -148,5 +152,6 @@ def Integrate(argv=sys.argv):
 	return(t,sol)
 
 if __name__ == "__main__":
-	t,sol=Integrate()
+	param=[None,10,100,0.2]
+	t,sol=Integrate(param)
 	print_graph(t,sol)
