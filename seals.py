@@ -148,4 +148,5 @@ def Integrate(argv=sys.argv):
 	return(t,sol)
 
 if __name__ == "__main__":
-	print_graph(Integrate())
+	t,sol=Integrate()
+	print_graph(t,sol)
