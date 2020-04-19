@@ -17,7 +17,7 @@ pip install numpy
 ## Installing
 
 ```bash
-apt install seals
+apt install Seals
 ```
 
 ## Using
