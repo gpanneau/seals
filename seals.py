@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 import sys
 import pylab as plt
 import scipy.integrate as itg
@@ -91,15 +89,25 @@ def print_graph(t,sol):
 	plt.legend()
 
 	plt.show()
+	return(None)
 
 def Integrate(param=sys.argv):
 	"""
 	Integrate the system for the given parameters.
 
+	Parameters:
+	- param : parameters given by the user thanks to sys.argv. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.
 
+	Return:
+	- (None,None) if there is a problem
+	- else it returns (t,sol) with :
+		- t : A sequence of time points for which the system has been solved.
+		- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 
 	"""
-
+	if len(param)!=4:
+		print('You should give 3 parameters : the duration of the extraction, the duration of the experiment and the sand extraction rate.')
+		return(None,None)
 	t_max_extraction,t_max,extraction_sand=int(param[1]),int(param[2]),float(param[3])
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
@@ -110,11 +118,11 @@ def Integrate(param=sys.argv):
 	sand=sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step)
 
 	if t_max_extraction>t_max:
-		print("Le temps de l'expérience t_max doit être >= au temps d'extraction t_max_extraction")
-		return(None)
+		print("The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction")
+		return(None,None)
 	if sand[-1]<0:
-		print("Extraction de sable trop forte, il n'y a plus de sable dans la baie, veuillez choisir une valeur plus faible pour extraction_sand ou bien une durée moins longue d'extraction")
-		return(None)
+		print("The value of extraction is too big, you removed all the sand of the bay!")
+		return(None,None)
 	"""données initiales"""
 	S0=70
 	Nseals=500
@@ -152,6 +160,8 @@ def Integrate(param=sys.argv):
 	return(t,sol)
 
 if __name__ == "__main__":
-	param=[None,10,100,0.2]
-	t,sol=Integrate(param)
-	print_graph(t,sol)
+	t,sol=Integrate()
+	if t is None:
+		print('There is a problem')
+	else:
+		print_graph(t,sol)
