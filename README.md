@@ -1,6 +1,6 @@
 # Modelization of the impact of the sand extraction on the seal food chain 
 
-Seal is a Python 3.7 package allows to model the impact of the sand extraction on 3 species of the Bay of the Somme - seals, soles and lugworms.
+seals is a Python 3.7 package allows to model the impact of the sand extraction on 3 species of the Bay of the Somme - seals, soles and lugworms.
 
 ## Getting Started
 
