@@ -23,15 +23,15 @@ apt install Seals
 ## Features
 
 This project allows to return four graph :
-_ graph 1 : The evolution of the number of seals during the duration of the experiment.
-_ graph 2 : The evolution of the number of soles during the duration of the experiment.
-_ graph 3 : The evolution of the number of lugworms during the duration of the experiment.
-_ graph 4 : The evolution of the amount of sand in cubic meters during the duration of the experiment.
+* graph 1 : The evolution of the number of seals during the duration of the experiment.
+* graph 2 : The evolution of the number of soles during the duration of the experiment.
+* graph 3 : The evolution of the number of lugworms during the duration of the experiment.
+* graph 4 : The evolution of the amount of sand in cubic meters during the duration of the experiment.
 
 ## TODO
 
-[] Allowing the modification of the growth rate of seals, soles and lugworms populations.
-[] Rectify the rough change of periodicity during the modeling.
+* Allowing the modification of the growth rate of seals, soles and lugworms populations.
+* Rectify the rough change of periodicity during the modeling.
 
 ## Tutorial
 
@@ -58,7 +58,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Authors
 
 * **Guilhem PANNEAU** - *Initial work* - [https://github.com/gpanneau](https://github.com/gpanneau)
-* **Dimitri MIKEC** - *Contributor* - [https://github.com/Dikec)](https://github.com/Dikec)
+* **Dimitri MIKEC** - *Contributor* - [https://github.com/Dikec](https://github.com/Dikec)
 * **Jonathan LOUISON** - *Contributor* - [https://github.com/jonathanlsn](https://github.com/jonathanlsn)
 
 ## License
