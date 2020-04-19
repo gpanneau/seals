@@ -20,18 +20,18 @@ pip install numpy
 apt install Seals
 ```
 
-## TODO
+## Features
 
-```bash
-python main.py extraction_period(int) experience_period(int) extraction_rate_by_year(float) 
-```
-
-This program return four graph :
+This project allows to return four graph :
 _ graph 1 : The evolution of the number of seals during the duration of the experiment.
 _ graph 2 : The evolution of the number of soles during the duration of the experiment.
 _ graph 3 : The evolution of the number of lugworms during the duration of the experiment.
 _ graph 4 : The evolution of the amount of sand in cubic meters during the duration of the experiment.
 
+## TODO
+
+[] Allowing the modification of the growth rate of seals, soles and lugworms populations.
+[] Rectify the rough change of periodicity during the modeling.
 
 ## Tutorial
 
