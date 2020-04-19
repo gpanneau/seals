@@ -51,7 +51,7 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 
 def print_graph(t,sol):
 	"""
-	Print the results (4 graphics).
+	Print the results (4 graphics : seals(t),soles(t),lugworms(t),sand(t)).
 
 	Parameters : 
 	- t : A sequence of time points for which the system has been solved.
@@ -99,16 +99,25 @@ def Integrate(param=sys.argv):
 	- param : parameters given by the user thanks to sys.argv. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.
 
 	Return:
-	- (None,None) if there is a problem
+	- None if there is a problem
 	- else it returns (t,sol) with :
 		- t : A sequence of time points for which the system has been solved.
 		- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 
 	"""
+
+	"""Import of values"""
 	if len(param)!=4:
 		print('You should give 3 parameters : the duration of the extraction, the duration of the experiment and the sand extraction rate.')
-		return(None,None)
-	t_max_extraction,t_max,extraction_sand=int(param[1]),int(param[2]),float(param[3])
+		return(None)
+	try:
+		t_max_extraction,t_max,extraction_sand=int(param[1]),int(param[2]),float(param[3])
+	except:
+		print('t_max_extraction is an int, t_max is an int ,extraction_sand is a float')
+		return(None)
+	if t_max_extraction<1 or t_max<1 or extraction_sand<0:
+		print('t_max_extraction is >=1 ,t_max is >=1 ,extraction_sand is >=0')
+		return(None)
 	nb_step=t_max*20
 	nb_step_extraction=t_max_extraction*20
 	nb_step_without_extraction=nb_step-nb_step_extraction
@@ -119,11 +128,12 @@ def Integrate(param=sys.argv):
 
 	if t_max_extraction>t_max:
 		print("The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction")
-		return(None,None)
+		return(None)
 	if sand[-1]<0:
 		print("The value of extraction is too big, you removed all the sand of the bay!")
-		return(None,None)
-	"""données initiales"""
+		return(None)
+
+	"""Data"""
 	S0=70
 	Nseals=500
 	Nsoles=50000
@@ -141,14 +151,17 @@ def Integrate(param=sys.argv):
 	hg=-fg
 	gh=-hh
 
-
+	
 	Y = [f,g,h]
 	t_extraction = np.linspace(0, t_max, nb_step_extraction+1)
 	t_without_extraction=np.linspace(0, t_max-t_max_extraction, nb_step_without_extraction)
 	t = np.linspace(0, t_max, nb_step+1)
 
+	"""Integrate with odeint"""
 	res_extraction = itg.odeint(ODEs_system,Y,t_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand))
 	res_without_extraction=itg.odeint(ODEs_system,res_extraction[-1],t_without_extraction,args=(ff,gf,fg,hg,hh,gh,sea_sand,0.))
+
+	"""enhancement of our data"""
 	sol=[[],[],[],[]]
 	for i in range(3):
 		for k in range(len(res_extraction)):
@@ -161,7 +174,5 @@ def Integrate(param=sys.argv):
 
 if __name__ == "__main__":
 	t,sol=Integrate()
-	if t is None:
-		print('There is a problem')
-	else:
+	if t is not(None):
 		print_graph(t,sol)
