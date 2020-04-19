@@ -1,4 +1,4 @@
-# Seal food chain modelization
+# Modelization of the impact of the sand extraction on the eal food chain 
 
 Seal is a Python 3.7 package allows to model the impact of the sand extraction on 3 species of the Bay of the Somme - seals, soles and lugworms.
 
@@ -20,45 +20,47 @@ pip install numpy
 apt install Seals
 ```
 
-## Using
+## TODO
 
 ```bash
-python seals.py extraction_period experience_period extraction_rate_by_year 
+python main.py extraction_period(int) experience_period(int) extraction_rate_by_year(float) 
 ```
 
-```Python
-
-```
-
-This function return four graph :
+This program return four graph :
 _ graph 1 : The evolution of the number of seals during the duration of the experiment.
 _ graph 2 : The evolution of the number of soles during the duration of the experiment.
 _ graph 3 : The evolution of the number of lugworms during the duration of the experiment.
 _ graph 4 : The evolution of the amount of sand in cubic meters during the duration of the experiment.
 
-see more in [tutorial.py](tutorial.py)
 
+## Tutorial
 
-## Deployment
+```bash
+python tutorial.py
+```
 
-Add additional notes about how to deploy this on a live system
+is equivalent to :
+
+```bash
+python main.py 20 200 0.2
+```
+
+## Tests
+
+```bash
+python seals.py -v
+```
 
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
-
 ## Authors
 
-* **Guilhem PANNEAU** - *Initial work* - [PurpleBooth](https://github.com/gpanneau)
-* **Guilhem PANNEAU** - *Contributor* - [PurpleBooth](https://github.com/Dikec)
-* **Guilhem PANNEAU** - *Contributor* - [PurpleBooth](https://github.com/jonathanlsn)
+* **Guilhem PANNEAU** - *Initial work* - [github.com](https://github.com/gpanneau)
+* **Dimitri MIKEC** - *Contributor* - [github.com](https://github.com/Dikec)
+* **Jonathan LOUISON** - *Contributor* - [github.com](https://github.com/jonathanlsn)
 
 ## License
 
 This project is licensed under the CeCILL License - see the [license.txt](license.txt) file for details
-
-## Acknowledgments
-
-* References guilhem
