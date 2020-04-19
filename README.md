@@ -23,7 +23,7 @@ apt install seals
 ## TODO
 
 ```bash
-python seals.py extraction_period(int) experience_period(int) extraction_rate_by_year(float) 
+python main.py extraction_period(int) experience_period(int) extraction_rate_by_year(float) 
 ```
 
 This program return four graph :
@@ -42,13 +42,13 @@ python tutorial.py
 is equivalent to :
 
 ```bash
-python seals.py 20 200 0.2
+python main.py 20 200 0.2
 ```
 
 ## Tests
 
 ```bash
-python test.py
+python seals.py -v
 ```
 
 ## Contributing
