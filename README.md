@@ -57,9 +57,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Authors
 
-* **Guilhem PANNEAU** - *Initial work* - [github.com](https://github.com/gpanneau)
-* **Dimitri MIKEC** - *Contributor* - [github.com](https://github.com/Dikec)
-* **Jonathan LOUISON** - *Contributor* - [github.com](https://github.com/jonathanlsn)
+* **Guilhem PANNEAU** - *Initial work* - [https://github.com/gpanneau](https://github.com/gpanneau)
+* **Dimitri MIKEC** - *Contributor* - [https://github.com/Dikec)](https://github.com/Dikec)
+* **Jonathan LOUISON** - *Contributor* - [https://github.com/jonathanlsn](https://github.com/jonathanlsn)
 
 ## License
 
