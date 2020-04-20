@@ -1,0 +1,6 @@
+README.md
+setup.py
+seals_gpanneau.egg-info/PKG-INFO
+seals_gpanneau.egg-info/SOURCES.txt
+seals_gpanneau.egg-info/dependency_links.txt
+seals_gpanneau.egg-info/top_level.txt

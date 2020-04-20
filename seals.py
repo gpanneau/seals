@@ -73,7 +73,7 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 
 	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)
 	
-	Examples:
+	Examples :
 	
 	>>> sand_list(0,0,1,1)
 	[1.0, 1.0]
@@ -137,17 +137,17 @@ def Integrate(param):
 	"""
 	Integrate the system for the given parameters.
 	
-	Parameters:
+	Parameters :
 
 	- param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.
 
-	Return:
+	Return :
 
 	- None if there is a problem
 
 	- else it returns (t,sol) : t is a sequence of time points for which the system has been solved and sol is a list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 	
-	Examples:
+	Examples :
 	
 	>>> Integrate(['seals.py','2','1','0'])
 	The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction

@@ -15,4 +15,3 @@ if __name__ == "__main__":
 	t, sol=Integrate(sys.argv)
 	if t is not(None):
 		print_graph(t,sol)
-

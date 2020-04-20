@@ -17,7 +17,7 @@ pip install numpy
 ## Installing
 
 ```bash
-apt install Seals
+pip install -i https://test.pypi.org/simple/Seals
 ```
 
 ## Features
@@ -50,6 +50,12 @@ python main.py 20 200 0.2
 ```bash
 python seals.py -v
 ```
+
+## FAQ
+
+Which version of Python should I use ? You can use Python3.X
+
+May I save the graphics ? Yes, you can save them with matplotlib
 
 ## Contributing
 
