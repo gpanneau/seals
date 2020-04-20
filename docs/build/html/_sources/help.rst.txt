@@ -1,4 +1,4 @@
 Need help ?
-==========
+===========
 
-If you heve any trouble please contact us by mail with the adress guilhem.panneau@insa-lyon.fr
+If you have any trouble please contact the main programmer by mail with the adress guilhem.panneau@insa-lyon.fr
