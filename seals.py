@@ -1,3 +1,11 @@
+"""
+Implementation of functions used to model the impact of the sand dredging on the 3 species (seals/soles/lugworms)
+
+@authors Guilhem Panneau, Dimitri Mikec, Jonathan Louison
+
+@date 04/20/20
+"""
+
 import pylab as plt
 import scipy.integrate as itg
 import numpy as np
@@ -6,7 +14,7 @@ import numpy as np
 
 def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
 	"""
-	Computes the derivative of y at t.
+	Computes the derivative of y at t. It is inspired by the predator prey model.
 
 	Parameters :
 	- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay
@@ -23,7 +31,7 @@ def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
 	Return :
 	- dydt (list of 3 floats) - Derivate of y at t
 
-	Exemples:
+	Examples:
 
 	>>> ODEs_system([1.,1.,1.],0,-0.2,0.2,-0.4,0.4,0.6,-0.6,1.,0.2)
 	[0.0, 0.0, 0.6000000000000001]
@@ -51,7 +59,7 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 	Return :
 	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)
 	
-	Exemples:
+	Examples:
 	
 	>>> sand_list(0,0,1,1)
 	[1.0, 1.0]
@@ -122,7 +130,7 @@ def Integrate(param):
 		- t : A sequence of time points for which the system has been solved.
 		- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 	
-	Exemples:
+	Examples:
 	
 	>>> Integrate(['seals.py','2','1','0'])
 	The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction
