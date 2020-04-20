@@ -57,13 +57,9 @@
 - param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.</p>
 <p>Return:
 - None if there is a problem
-- else it returns (t,sol) with :</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>t : A sequence of time points for which the system has been solved.</p></li>
-<li><p>sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</p></li>
-</ul>
-</div></blockquote>
+- else it returns (t,sol) with :
+&gt; t : A sequence of time points for which the system has been solved.
+&gt; sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</p>
 <p>Examples:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Integrate</span><span class="p">([</span><span class="s1">&#39;seals.py&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">])</span>
 <span class="go">The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction</span>
