@@ -10,8 +10,6 @@ import pylab as plt
 import scipy.integrate as itg
 import numpy as np
 
-
-
 def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
 	"""
 	Computes the derivative of y at t. It is inspired by the predator prey model.
