@@ -53,13 +53,15 @@
 <dt id="seals.Integrate">
 <code class="sig-prename descclassname">seals.</code><code class="sig-name descname">Integrate</code><span class="sig-paren">(</span><em class="sig-param">param</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#Integrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.Integrate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Integrate the system for the given parameters.</p>
-<p>Parameters:
-- param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.</p>
-<p>Return:
-- None if there is a problem
-- else it returns (t,sol) with :
-&gt; t : A sequence of time points for which the system has been solved.
-&gt; sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</p>
+<p>Parameters:</p>
+<ul class="simple">
+<li><p>param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p>None if there is a problem</p></li>
+<li><p>else it returns (t,sol) : t is a sequence of time points for which the system has been solved and sol is a list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</p></li>
+</ul>
 <p>Examples:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Integrate</span><span class="p">([</span><span class="s1">&#39;seals.py&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">])</span>
 <span class="go">The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction</span>
@@ -89,19 +91,23 @@
 <dt id="seals.ODEs_system">
 <code class="sig-prename descclassname">seals.</code><code class="sig-name descname">ODEs_system</code><span class="sig-paren">(</span><em class="sig-param">y</em>, <em class="sig-param">t</em>, <em class="sig-param">ff</em>, <em class="sig-param">gf</em>, <em class="sig-param">fg</em>, <em class="sig-param">hg</em>, <em class="sig-param">hh</em>, <em class="sig-param">gh</em>, <em class="sig-param">sea_sand</em>, <em class="sig-param">extraction_sand</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#ODEs_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.ODEs_system" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the derivative of y at t. It is inspired by the predator prey model.</p>
-<p>Parameters :
-- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay
-- t (float) - Time parameter
-- ff (float) - Seals death rate
-- gf (float) - Seals growth rate because of the soles consumptuion
-- fg (float) - Rate of soles eaten by the seals
-- hg (float) - Soles growth rate because of the soles consumptuion
-- hh (float) - Lugworms growth rate
-- gh (float) - Rate of lugworms eaten by the soles
-- sea_sand (float) - Impact of the sanding (on the lugworms)
-- extraction_sand (float) - Impact of the sand dredging (on the lungworms)</p>
-<p>Return :
-- dydt (list of 3 floats) - Derivate of y at t</p>
+<p>Parameters :</p>
+<ul class="simple">
+<li><p>y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay</p></li>
+<li><p>t (float) - Time parameter</p></li>
+<li><p>ff (float) - Seals death rate</p></li>
+<li><p>gf (float) - Seals growth rate because of the soles consumption</p></li>
+<li><p>fg (float) - Rate of soles eaten by the seals</p></li>
+<li><p>hg (float) - Soles growth rate because of the soles consumption</p></li>
+<li><p>hh (float) - Lugworms growth rate</p></li>
+<li><p>gh (float) - Rate of lugworms eaten by the soles</p></li>
+<li><p>sea_sand (float) - Impact of the sanding (on the lugworms)</p></li>
+<li><p>extraction_sand (float) - Impact of the sand dredging (on the lungworms)</p></li>
+</ul>
+<p>Return :</p>
+<ul class="simple">
+<li><p>dydt (list of 3 floats) - Derivate of y at t</p></li>
+</ul>
 <p>Examples:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ODEs_system</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="go">[0.0, 0.0, 0.6000000000000001]</span>
@@ -117,24 +123,29 @@
 <dt id="seals.print_graph">
 <code class="sig-prename descclassname">seals.</code><code class="sig-name descname">print_graph</code><span class="sig-paren">(</span><em class="sig-param">t</em>, <em class="sig-param">sol</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#print_graph"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.print_graph" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the results (4 graphics : seals(t),soles(t),lugworms(t),sand(t)).</p>
-<p>Parameters :
-- t : A sequence of time points for which the system has been solved.
-- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
-Return :
-- None</p>
+<p>Parameters :</p>
+<ul class="simple">
+<li><p>t : A sequence of time points for which the system has been solved.</p></li>
+<li><p>sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</p></li>
+</ul>
+<p>Return : None</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="seals.sand_list">
 <code class="sig-prename descclassname">seals.</code><code class="sig-name descname">sand_list</code><span class="sig-paren">(</span><em class="sig-param">sea_sand</em>, <em class="sig-param">extraction_sand</em>, <em class="sig-param">nb_step_extraction</em>, <em class="sig-param">nb_step</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#sand_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.sand_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the quantity of sand in the bay at each time t.</p>
-<p>Parameters :
-- sea_sand (float) - Impact of the sanding (on the sand quantity)
-- extraction_sand (float) - Impact of the sand dredging (on the sand quantity)
-- nb_step_extraction (int) - Number of extraction time
-- nb_step (int) - Number of different time</p>
-<p>Return :
-- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)</p>
+<p>Parameters :</p>
+<ul class="simple">
+<li><p>sea_sand (float) - Impact of the sanding (on the sand quantity)</p></li>
+<li><p>extraction_sand (float) - Impact of the sand dredging (on the sand quantity)</p></li>
+<li><p>nb_step_extraction (int) - Number of extraction time</p></li>
+<li><p>nb_step (int) - Number of different time</p></li>
+</ul>
+<p>Return :</p>
+<ul class="simple">
+<li><p>sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)</p></li>
+</ul>
 <p>Examples:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sand_list</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">[1.0, 1.0]</span>

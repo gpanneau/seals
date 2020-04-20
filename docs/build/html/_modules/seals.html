@@ -54,18 +54,29 @@
 <span class="sd">	Computes the derivative of y at t. It is inspired by the predator prey model.</span>
 
 <span class="sd">	Parameters :</span>
+
 <span class="sd">	- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay</span>
+
 <span class="sd">	- t (float) - Time parameter</span>
+
 <span class="sd">	- ff (float) - Seals death rate</span>
-<span class="sd">	- gf (float) - Seals growth rate because of the soles consumptuion</span>
+
+<span class="sd">	- gf (float) - Seals growth rate because of the soles consumption</span>
+
 <span class="sd">	- fg (float) - Rate of soles eaten by the seals</span>
-<span class="sd">	- hg (float) - Soles growth rate because of the soles consumptuion</span>
+
+<span class="sd">	- hg (float) - Soles growth rate because of the soles consumption</span>
+
 <span class="sd">	- hh (float) - Lugworms growth rate</span>
+
 <span class="sd">	- gh (float) - Rate of lugworms eaten by the soles</span>
+
 <span class="sd">	- sea_sand (float) - Impact of the sanding (on the lugworms)</span>
+
 <span class="sd">	- extraction_sand (float) - Impact of the sand dredging (on the lungworms)</span>
 
 <span class="sd">	Return :</span>
+
 <span class="sd">	- dydt (list of 3 floats) - Derivate of y at t</span>
 
 <span class="sd">	Examples:</span>
@@ -88,12 +99,17 @@
 <span class="sd">	Computes the quantity of sand in the bay at each time t.</span>
 
 <span class="sd">	Parameters :</span>
+
 <span class="sd">	- sea_sand (float) - Impact of the sanding (on the sand quantity)</span>
+
 <span class="sd">	- extraction_sand (float) - Impact of the sand dredging (on the sand quantity)</span>
+
 <span class="sd">	- nb_step_extraction (int) - Number of extraction time</span>
+
 <span class="sd">	- nb_step (int) - Number of different time</span>
 <span class="sd">	</span>
 <span class="sd">	Return :</span>
+
 <span class="sd">	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)</span>
 <span class="sd">	</span>
 <span class="sd">	Examples:</span>
@@ -117,10 +133,12 @@
 <span class="sd">	Print the results (4 graphics : seals(t),soles(t),lugworms(t),sand(t)).</span>
 
 <span class="sd">	Parameters : </span>
+
 <span class="sd">	- t : A sequence of time points for which the system has been solved.</span>
+
 <span class="sd">	- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</span>
-<span class="sd">	Return : </span>
-<span class="sd">	- None</span>
+
+<span class="sd">	Return : None</span>
 <span class="sd">	&quot;&quot;&quot;</span>
 
 	<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -159,13 +177,14 @@
 <span class="sd">	Integrate the system for the given parameters.</span>
 <span class="sd">	</span>
 <span class="sd">	Parameters:</span>
+
 <span class="sd">	- param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.</span>
 
 <span class="sd">	Return:</span>
+
 <span class="sd">	- None if there is a problem</span>
-<span class="sd">	- else it returns (t,sol) with :</span>
-<span class="sd">	&gt; t : A sequence of time points for which the system has been solved.</span>
-<span class="sd">	&gt; sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</span>
+
+<span class="sd">	- else it returns (t,sol) : t is a sequence of time points for which the system has been solved and sol is a list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</span>
 <span class="sd">	</span>
 <span class="sd">	Examples:</span>
 <span class="sd">	</span>

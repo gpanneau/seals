@@ -15,18 +15,29 @@ def ODEs_system(y,t,ff,gf,fg,hg,hh,gh,sea_sand,extraction_sand):
 	Computes the derivative of y at t. It is inspired by the predator prey model.
 
 	Parameters :
+
 	- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay
+
 	- t (float) - Time parameter
+
 	- ff (float) - Seals death rate
-	- gf (float) - Seals growth rate because of the soles consumptuion
+
+	- gf (float) - Seals growth rate because of the soles consumption
+
 	- fg (float) - Rate of soles eaten by the seals
-	- hg (float) - Soles growth rate because of the soles consumptuion
+
+	- hg (float) - Soles growth rate because of the soles consumption
+
 	- hh (float) - Lugworms growth rate
+
 	- gh (float) - Rate of lugworms eaten by the soles
+
 	- sea_sand (float) - Impact of the sanding (on the lugworms)
+
 	- extraction_sand (float) - Impact of the sand dredging (on the lungworms)
 
 	Return :
+
 	- dydt (list of 3 floats) - Derivate of y at t
 
 	Examples:
@@ -49,12 +60,17 @@ def sand_list(sea_sand,extraction_sand,nb_step_extraction,nb_step):
 	Computes the quantity of sand in the bay at each time t.
 
 	Parameters :
+
 	- sea_sand (float) - Impact of the sanding (on the sand quantity)
+
 	- extraction_sand (float) - Impact of the sand dredging (on the sand quantity)
+
 	- nb_step_extraction (int) - Number of extraction time
+
 	- nb_step (int) - Number of different time
 	
 	Return :
+
 	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)
 	
 	Examples:
@@ -78,10 +94,12 @@ def print_graph(t,sol):
 	Print the results (4 graphics : seals(t),soles(t),lugworms(t),sand(t)).
 
 	Parameters : 
+
 	- t : A sequence of time points for which the system has been solved.
+
 	- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
-	Return : 
-	- None
+
+	Return : None
 	"""
 
 	plt.figure()
@@ -120,13 +138,14 @@ def Integrate(param):
 	Integrate the system for the given parameters.
 	
 	Parameters:
+
 	- param : parameters given by the user. The parameters are the duration of the extraction, the duration of the experiment and the sand extraction rate.
 
 	Return:
+
 	- None if there is a problem
-	- else it returns (t,sol) with :
-		- t : A sequence of time points for which the system has been solved.
-		- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
+
+	- else it returns (t,sol) : t is a sequence of time points for which the system has been solved and sol is a list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.
 	
 	Examples:
 	
