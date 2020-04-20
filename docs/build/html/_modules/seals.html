@@ -39,7 +39,15 @@
           <div class="body" role="main">
             
   <h1>Source code for seals</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Implementation of functions used to model the impact of the sand dredging on the 3 species (seals/soles/lugworms)</span>
+
+<span class="sd">@authors Guilhem Panneau, Dimitri Mikec, Jonathan Louison</span>
+
+<span class="sd">@date 04/20/20</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">pylab</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">scipy.integrate</span> <span class="k">as</span> <span class="nn">itg</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -47,7 +55,7 @@
 
 <div class="viewcode-block" id="ODEs_system"><a class="viewcode-back" href="../seals.html#seals.ODEs_system">[docs]</a><span class="k">def</span> <span class="nf">ODEs_system</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">ff</span><span class="p">,</span><span class="n">gf</span><span class="p">,</span><span class="n">fg</span><span class="p">,</span><span class="n">hg</span><span class="p">,</span><span class="n">hh</span><span class="p">,</span><span class="n">gh</span><span class="p">,</span><span class="n">sea_sand</span><span class="p">,</span><span class="n">extraction_sand</span><span class="p">):</span>
 	<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">	Computes the derivative of y at t.</span>
+<span class="sd">	Computes the derivative of y at t. It is inspired by the predator prey model.</span>
 
 <span class="sd">	Parameters :</span>
 <span class="sd">	- y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay</span>
@@ -64,7 +72,7 @@
 <span class="sd">	Return :</span>
 <span class="sd">	- dydt (list of 3 floats) - Derivate of y at t</span>
 
-<span class="sd">	Exemples:</span>
+<span class="sd">	Examples:</span>
 
 <span class="sd">	&gt;&gt;&gt; ODEs_system([1.,1.,1.],0,-0.2,0.2,-0.4,0.4,0.6,-0.6,1.,0.2)</span>
 <span class="sd">	[0.0, 0.0, 0.6000000000000001]</span>
@@ -92,7 +100,7 @@
 <span class="sd">	Return :</span>
 <span class="sd">	- sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)</span>
 <span class="sd">	</span>
-<span class="sd">	Exemples:</span>
+<span class="sd">	Examples:</span>
 <span class="sd">	</span>
 <span class="sd">	&gt;&gt;&gt; sand_list(0,0,1,1)</span>
 <span class="sd">	[1.0, 1.0]</span>
@@ -163,7 +171,7 @@
 <span class="sd">		- t : A sequence of time points for which the system has been solved.</span>
 <span class="sd">		- sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</span>
 <span class="sd">	</span>
-<span class="sd">	Exemples:</span>
+<span class="sd">	Examples:</span>
 <span class="sd">	</span>
 <span class="sd">	&gt;&gt;&gt; Integrate([&#39;seals.py&#39;,&#39;2&#39;,&#39;1&#39;,&#39;0&#39;])</span>
 <span class="sd">	The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction</span>

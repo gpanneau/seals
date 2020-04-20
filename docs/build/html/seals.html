@@ -48,6 +48,9 @@
             
   <div class="section" id="module-seals">
 <span id="seals-module"></span><h1>seals module<a class="headerlink" href="#module-seals" title="Permalink to this headline">¶</a></h1>
+<p>Implementation of functions used to model the impact of the sand dredging on the 3 species (seals/soles/lugworms)</p>
+<p>&#64;authors Guilhem Panneau, Dimitri Mikec, Jonathan Louison</p>
+<p>&#64;date 04/20/20</p>
 <dl class="function">
 <dt id="seals.Integrate">
 <code class="descclassname">seals.</code><code class="descname">Integrate</code><span class="sig-paren">(</span><em>param</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#Integrate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.Integrate" title="Permalink to this definition">¶</a></dt>
@@ -63,7 +66,7 @@
 <li>sol : A list of 4 lists of floats. The first list is the quantity of seals, the second list is the quantity of soles, the third list is the quantity of lugworms and the fourth list is the quantity of sand.</li>
 </ul>
 </div></blockquote>
-<p>Exemples:</p>
+<p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Integrate</span><span class="p">([</span><span class="s1">&#39;seals.py&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;1&#39;</span><span class="p">,</span><span class="s1">&#39;0&#39;</span><span class="p">])</span>
 <span class="go">The duration of the experiment t_max should be longer than the duration of the extraction t_max_extraction</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Integrate</span><span class="p">([</span><span class="s1">&#39;seals.py&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;2&#39;</span><span class="p">,</span><span class="s1">&#39;10&#39;</span><span class="p">])</span>
@@ -91,7 +94,7 @@
 <dl class="function">
 <dt id="seals.ODEs_system">
 <code class="descclassname">seals.</code><code class="descname">ODEs_system</code><span class="sig-paren">(</span><em>y</em>, <em>t</em>, <em>ff</em>, <em>gf</em>, <em>fg</em>, <em>hg</em>, <em>hh</em>, <em>gh</em>, <em>sea_sand</em>, <em>extraction_sand</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/seals.html#ODEs_system"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#seals.ODEs_system" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the derivative of y at t.</p>
+<dd><p>Computes the derivative of y at t. It is inspired by the predator prey model.</p>
 <p>Parameters :
 - y (list of 3 floats) - Number of seals, soles and lugworms at time t in the bay
 - t (float) - Time parameter
@@ -105,7 +108,7 @@
 - extraction_sand (float) - Impact of the sand dredging (on the lungworms)</p>
 <p>Return :
 - dydt (list of 3 floats) - Derivate of y at t</p>
-<p>Exemples:</p>
+<p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ODEs_system</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="go">[0.0, 0.0, 0.6000000000000001]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ODEs_system</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">1.</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">)</span>
@@ -138,7 +141,7 @@ Return :
 - nb_step (int) - Number of different time</p>
 <p>Return :
 - sand (list of floats) - Quantity of sand in the bay (rate in comparison to the initial value)</p>
-<p>Exemples:</p>
+<p>Examples:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sand_list</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">[1.0, 1.0]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sand_list</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
