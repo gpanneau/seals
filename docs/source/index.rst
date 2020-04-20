@@ -11,7 +11,7 @@ Welcome to Seals's documentation!
 .. toctree::
    :maxdepth: 2
    
-   intro 
+   modules 
    license
    help
 
