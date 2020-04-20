@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: seals
+Version: 0.0.1
+Summary: This package allows to model the impact of the sand extraction on 3 species of the Bay of the Somme - seals, soles and lugworms.
+Home-page: https://github.com/gpanneau/seals
+Author: gpanneau
+Author-email: guilhem.panneau@insa-lyon.fr
+License: UNKNOWN
+Description: This project allows to return four graph : * graph 1 : The evolution of the number of seals during the duration of the experiment. * graph 2 : The evolution of the number of soles during the duration of the experiment. * graph 3 : The evolution of the number of lugworms during the duration of the experiment. * graph 4 : The evolution of the amount of sand in cubic meters during the duration of the experiment.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
