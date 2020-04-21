@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="seals",
+    name="seals_pml",
     version="0.0.1",
     author="gpanneau",
     author_email="guilhem.panneau@insa-lyon.fr",
@@ -15,6 +15,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
+        "License :: OSI Approved",
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.0',
