@@ -1,6 +1,0 @@
-README.md
-setup.py
-seals.egg-info/PKG-INFO
-seals.egg-info/SOURCES.txt
-seals.egg-info/dependency_links.txt
-seals.egg-info/top_level.txt
