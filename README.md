@@ -8,17 +8,23 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Prerequisites
 
-pip install sys
-pip install pylab
-pip install scipy
-pip install numpy
-
+```bash
+python3 -m pip install pylab
+python3 -m pip install scipy
+python3 -m pip install numpy
+```
 
 ## Installing
 
+clone github repository
+(main.py, tutorial.py and docs are avaible)
+
+OR
+
 ```bash
-python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps seals
+python3 -m pip install --index-url https://test.pypi.org/simple/ --no-deps seals-pml
 ```
+(main.py and tutorial.py and docs are not avaible)
 
 ## Features
 
@@ -35,17 +41,33 @@ This project allows to return four graph :
 
 ## Tutorial
 
+
+### With github :
+
 ```bash
 python tutorial.py
 ```
-
 is equivalent to :
-
 ```bash
 python main.py 20 200 0.2
 ```
 
-## Tests
+### As a package :
+
+```bash
+python3
+```
+
+```python
+from seals_pml import seals
+
+A=seals.Integrate(['seals.py','20','200','0.2'])
+t,sol=A
+seals.print_graph(t,sol)
+```
+
+
+## Tests (with github)
 
 ```bash
 python seals.py -v
